@@ -14,7 +14,8 @@ RUN apt-get update && \
     php7.0-xml \
     php7.0-mysql \
     php7.0-sqlite3 \
-    php7.0-zip
+    php7.0-zip \
+    git
 
 RUN docker-php-ext-install pdo pdo_mysql
 
