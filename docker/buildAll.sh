@@ -9,4 +9,7 @@ cd ${DIR} \
 && docker build --build-arg project=$project_name -f php-fpm/Dockerfile -t tellme/php-fpm . \
 && echo '//////////////////// BUILDING nginx Image \\\\\\\\\\\\\\\\\\\\' \
 && docker build --build-arg project=$project_name -f nginx/Dockerfile -t tellme/nginx . \
-&& docker-compose up
+&& docker-compose up -d \
+&& docker-compose exec php composer install \
+&& cd ../projects/$project_name \
+&& docker exec -it $project_name/app sh
