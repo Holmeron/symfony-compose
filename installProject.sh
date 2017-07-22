@@ -5,14 +5,13 @@ if [ $# -eq 0 ]
     echo "No argument supplied, you need to pass your project name as the first argument (optional : git as second)"
     exit 1;
 fi
-if [ ! -f "$2" ];
-  then
+project_name=$1
+if [ ! -f "$2" ] && [ ! -d ./projects/$project_name ]; then
     echo "git repository :"
     read git
+    mkdir projects/$project_name
+    git clone -b develop $git "./projects/$project_name"
 fi
-project_name=$1
-mkdir projects/$project_name
-git clone -b develop $git "./projects/$project_name"
 
 cd docker;
 # create docker-compose.yml with proper project_name

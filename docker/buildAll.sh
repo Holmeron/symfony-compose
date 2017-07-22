@@ -11,5 +11,5 @@ cd ${DIR} \
 && docker build --build-arg project=$project_name -f nginx/Dockerfile -t $project_name/nginx . \
 && docker-compose up -d \
 && docker-compose exec php composer install \
-&& cd ../projects/$project_name \
-&& docker exec -it $project_name/app sh
+&& docker-compose exec nginx chown -R www-data:www-data /var/www/$project \
+&& docker-compose exec app bash
