@@ -12,4 +12,5 @@ cd ${DIR} \
 && docker-compose up -d \
 && docker-compose exec php composer install \
 && docker-compose exec nginx chown -R www-data:www-data /var/www/$project \
+&& docker-compose exec app npm i \
 && docker-compose exec app bash

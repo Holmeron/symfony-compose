@@ -14,7 +14,6 @@ RUN mkdir /etc/nginx/sites-enabled \
   && ln -sf /etc/nginx/sites-available/* /etc/nginx/sites-enabled/
 
 WORKDIR /var/www/$project
-RUN chown -R www-data:www-data /var/www/$project
 
 CMD ["nginx"]
 

@@ -3,6 +3,9 @@ docker/logs/
 docker/nginx/
 docker/php-fpm/
 docker/app/
+!docker/app/Dockerfile
+!docker/nginx/Dockerfile
+!docker/php-fpm/Dockerfile
 docker/docker-compose.yml
 
 !docker/**/Dockerfile
